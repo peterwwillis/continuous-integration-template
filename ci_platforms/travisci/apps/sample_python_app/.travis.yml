@@ -1,0 +1,66 @@
+language: python
+python:
+  - "3"
+
+#env:
+#  - SAMPLE_VAR=123
+
+install:
+  - "make dependencies"
+
+#before_script:
+# - some commands
+
+script:
+  - "make tests"
+  
+after_success:
+  - codecov
+
+### https://docs.travis-ci.com/user/notifications
+#notifications:
+# 
+#  email:
+#    - one@example.com
+#    - other@example.com
+#    recipients:
+#      - one@example.com
+#      - other@example.com
+#    on_success: never # default: change
+#    on_failure: always # default: always
+# 
+#  irc:
+#    channels:
+#      - "chat.freenode.net#my-channel"
+#      - "chat.freenode.net#some-other-channel"
+#    on_success: change # default: always
+#    on_failure: always # default: always
+#    template:
+#      - "%{repository_slug} (%{commit}) : %{message}"
+#      - "Build details: %{build_url}"
+#    use_notice: true
+#    skip_join: true
+#    channel_key: 'password'
+#    nick: travisci
+#    password: super_secret
+# 
+#  webhooks:
+#    urls:
+#      - http://hooks.mydomain.com/travisci
+#      - http://hooks.mydomain.com/events
+#    on_success: change # default: always
+#    on_failure: always # default: always
+#    on_start:   change # default: never
+#    on_cancel:  always # default: always
+#    on_error:   always # default: always
+#
+#  slack:
+#    - rooms:
+#        - secure: "sdfusdhfsdofguhdfgubdsifgudfbgs3453durghssecurestringidsuag34522irueg="
+#        #- <account>:<token>#failures
+#      on_success: never
+#      on_failure: always
+#      template:
+#        - "%{repository_slug} (%{commit}) : %{message}"
+#        - "Build details: %{build_url}"
+

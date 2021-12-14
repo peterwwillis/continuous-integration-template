@@ -1,0 +1,16 @@
+version: 2.1
+orbs:
+  localstack: localstack/platform@1.0
+jobs:
+  run-integration-tests:
+    executor: localstack/default
+    steps:
+      - localstack/startup
+      - run:
+          command: awslocal s3 mb s3://test-bucket
+      - run:
+          command: echo "Execute your tests here :)"
+workflows:
+  integration-test:
+    jobs:
+      - run-integration-tests
